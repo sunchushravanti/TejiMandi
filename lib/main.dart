@@ -1,8 +1,10 @@
 //@dart=2.9
 import 'package:flutter/material.dart';
 import 'package:teji_mandi/bloc/news_model_bloc.dart';
+import 'package:teji_mandi/constants.dart/constant_data.dart';
 import 'package:teji_mandi/dynamic_widgets/card_widget.dart';
 import 'package:teji_mandi/model/news_model.dart';
+import 'package:teji_mandi/ui/detail_screen.dart';
 import 'package:teji_mandi/utils/colors.dart';
 
 void main() {
@@ -12,7 +14,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -49,31 +50,53 @@ class _HomePage extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      debugShowCheckedModeBanner: true,
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: ColorUtils.appBarColor,
+          title: Center(child: Text(ConstantsData().headline)),
+        ),
         backgroundColor: ColorUtils.aapBackgroundColor,
-          resizeToAvoidBottomInset: false,
+        resizeToAvoidBottomInset: false,
         body: StreamBuilder(
           stream: _newsDataBloc.fetchAllData,
           builder: (context, AsyncSnapshot<NewsModel> snapshot) {
             if (snapshot.hasData) {
-             return Column(
+              return Column(
                 children: <Widget>[
                   Expanded(
-                    child:ListView.builder(
-                        itemCount: snapshot.data.articles.length,
-                        scrollDirection: Axis.vertical,
-                        itemBuilder: (BuildContext context, int index) {
-                          return CardWidget(imageUrl: snapshot.data.articles[index].urlToImage,);
-
-                        },
-                        
+                      child: ListView.builder(
+                    itemCount: snapshot.data.articles.length,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (BuildContext context, int index) {
+                      return InkWell(
+                          onTap: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => DetailScreen(
+                                          imageUrl: snapshot
+                                              .data.articles[index].urlToImage,
+                                          date: snapshot
+                                              .data.articles[index].publishedAt,
+                                          title: snapshot
+                                              .data.articles[index].title,
+                                          subTitle: snapshot
+                                              .data.articles[index].author,
+                                          description: snapshot
+                                              .data.articles[index].description,
+                                        )),
+                              ),
+                          child: CardWidget(
+                            imageUrl: snapshot.data.articles[index].urlToImage,
+                            date: snapshot.data.articles[index].publishedAt,
+                            title: snapshot.data.articles[index].title,
+                            subTitle: snapshot.data.articles[index].author,
+                          ));
+                    },
                   ))
-
                 ],
               );
-            }
-            else if (snapshot.hasError) {
+            } else if (snapshot.hasError) {
               return Text(snapshot.error.toString());
             }
             return const Center(child: CircularProgressIndicator());
@@ -81,7 +104,5 @@ class _HomePage extends State<MyHomePage> {
         ),
       ),
     );
-    }
-
-
+  }
 }

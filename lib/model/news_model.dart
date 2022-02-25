@@ -1,11 +1,16 @@
 class NewsModel {
   String? status;
-  String? error,success;
+  String? error, success;
 
   int? totalResults;
   List<Articles>? articles;
 
-  NewsModel({this.status, this.totalResults, this.articles,this.error,this.success});
+  NewsModel(
+      {this.status,
+      this.totalResults,
+      this.articles,
+      this.error,
+      this.success});
 
   NewsModel.fromJson(Map<String, dynamic> json) {
     status = json['status'];
@@ -28,7 +33,7 @@ class NewsModel {
     return data;
   }
 
-    NewsModel.withError(String errorMessage) {
+  NewsModel.withError(String errorMessage) {
     error = errorMessage;
   }
 
@@ -58,14 +63,13 @@ class Articles {
       this.content});
 
   Articles.fromJson(Map<String, dynamic> json) {
-    source =
-        json['source'] != null ? Source.fromJson(json['source']) : null;
+    source = json['source'] != null ? Source.fromJson(json['source']) : null;
     author = json['author'];
     title = json['title'];
     description = json['description'];
     url = json['url'];
     urlToImage = json['urlToImage'];
-    publishedAt = json['publishedAt'];
+    publishedAt = json['publishedAt']!.substring(0, 10);
     content = json['content'];
   }
 
@@ -79,7 +83,7 @@ class Articles {
     data['description'] = description;
     data['url'] = url;
     data['urlToImage'] = urlToImage;
-    data['publishedAt'] = publishedAt;
+    data['publishedAt'] = publishedAt!.substring(0, 10);
     data['content'] = content;
     return data;
   }
