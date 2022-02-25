@@ -1,6 +1,6 @@
 # teji_mandi
 
-A new Flutter project.
+A  Flutter project for the interview assignment.
 
 ## Getting Started
 
