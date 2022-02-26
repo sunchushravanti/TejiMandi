@@ -34,7 +34,7 @@ class DetailScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.grey[850]!.withOpacity(1.0),
+                    color: Colors.black.withOpacity(0.50),
                   ),
                 ],
                 image: DecorationImage(
@@ -42,46 +42,58 @@ class DetailScreen extends StatelessWidget {
                   image: CachedNetworkImageProvider(imageUrl),
                 ),
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children:  [
-                      InkWell(
-                        onTap: () => Navigator.pop(context),
-                        child: Padding(
-                          padding: const EdgeInsets.only(top:42,left:24),
-                          child: CircleAvatar(
-                            backgroundColor: Colors.black.withOpacity(0.45),
-                            radius: 25,
-                            child:const Icon(Icons.arrow_back, color: ColorUtils.appBarTitleColor,),
+              child: Container(
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.3),
+                    ),
+                  ],
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        InkWell(
+                          onTap: () => Navigator.pop(context),
+                          child: Padding(
+                            padding: const EdgeInsets.only(top: 42, left: 24),
+                            child: CircleAvatar(
+                              backgroundColor: Colors.black.withOpacity(0.45),
+                              radius: 25,
+                              child: const Icon(
+                                Icons.arrow_back,
+                                color: ColorUtils.appBarTitleColor,
+                              ),
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      TitleText(
-                        title: title,
-                        screenName: ConstantsData().detailScreen,
-                      ),
-                      SubTitleText(
-                        title: subTitle,
-                        date: date,
-                        screenName: ConstantsData().detailScreen,
-                      ),
-                      DescriptionText(
-                        title: description,
-                      )
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        TitleText(
+                          title: title,
+                          screenName: ConstantsData().detailScreen,
+                        ),
+                        SubTitleText(
+                          title: subTitle,
+                          date: date,
+                          screenName: ConstantsData().detailScreen,
+                        ),
+                        DescriptionText(
+                          title: description,
+                        )
+                      ],
+                    ),
+                  ],
+                ),
               ),
             )),
       ),

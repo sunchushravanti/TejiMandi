@@ -49,20 +49,30 @@ class CardWidget extends StatelessWidget {
                       image: CachedNetworkImageProvider(imageUrl),
                     ),
                   ),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      TitleText(
-                        title: title,
-                        screenName: ConstantsData().homeScreen,
-                      ),
-                      SubTitleText(
-                        title: subTitle,
-                        date: date,
-                        screenName: ConstantsData().homeScreen,
-                      )
+                  child: Container(
+                    decoration:BoxDecoration(
+                       borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    boxShadow: [
+                      BoxShadow(
+                         color: Colors.black.withOpacity(0.3),)
+                      
                     ],
+                  ),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        TitleText(
+                          title: title,
+                          screenName: ConstantsData().homeScreen,
+                        ),
+                        SubTitleText(
+                          title: subTitle,
+                          date: date,
+                          screenName: ConstantsData().homeScreen,
+                        )
+                      ],
+                    ),
                   ),
                 ),
               )),
