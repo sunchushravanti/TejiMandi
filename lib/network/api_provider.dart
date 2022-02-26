@@ -8,6 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:teji_mandi/model/news_model.dart';
 import 'package:teji_mandi/utils/api_header_collection.dart';
+import 'package:teji_mandi/utils/base_urle.dart';
 import 'package:teji_mandi/utils/internet_connection.dart';
 import 'package:teji_mandi/utils/message.dart';
 
@@ -15,8 +16,7 @@ class ApiProvider {
   final InternetConnection _internetConnection = InternetConnection();
   final ToastMsg _toastMsg = ToastMsg();
   var _internetStatus;
-  final String _baseURL =
-      "https://newsapi.org/v2/top-headlines?sources=techcrunch&apiKey=8aa62ff6ba6b43a19f776420e27cea68";
+  final String _baseURL = BaseUrls().headlinesUrl;
 
   Future<NewsModel> getNewsModelList({BuildContext context}) async {
     try {

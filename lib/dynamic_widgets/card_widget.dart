@@ -30,10 +30,10 @@ class CardWidget extends StatelessWidget {
               height: 200,
               child: Card(
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10.0),
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 color: Colors.white,
-                elevation: 10,
+                elevation: 5,
                 child: Container(
                   width: double.infinity,
                   height: double.infinity,
@@ -41,9 +41,8 @@ class CardWidget extends StatelessWidget {
                     borderRadius: const BorderRadius.all(Radius.circular(10)),
                     boxShadow: [
                       BoxShadow(
-                        color: Colors.grey.withOpacity(1.0),
-                        offset: const Offset(0, 3),
-                      ),
+                        color: Colors.grey[850]!.withOpacity(1.0)),
+                      
                     ],
                     image: DecorationImage(
                       fit: BoxFit.fill,

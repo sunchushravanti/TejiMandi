@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+       debugShowCheckedModeBanner: false,
       title: 'TejiMandi',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -54,7 +55,7 @@ class _HomePage extends State<MyHomePage> {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: ColorUtils.appBarColor,
-          title: Center(child: Text(ConstantsData().headline)),
+          title: Center(child: Text(ConstantsData().headline,style:const TextStyle(fontFamily: "Roboto Slab",fontSize: 29,color:ColorUtils.appBarTitleColor),)),
         ),
         backgroundColor: ColorUtils.aapBackgroundColor,
         resizeToAvoidBottomInset: false,

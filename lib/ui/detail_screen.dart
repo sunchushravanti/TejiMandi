@@ -31,11 +31,9 @@ class DetailScreen extends StatelessWidget {
               width: double.infinity,
               height: double.infinity,
               decoration: BoxDecoration(
-                borderRadius: const BorderRadius.all(Radius.circular(10)),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.grey.withOpacity(1.0),
-                    offset: const Offset(0, 3),
+                    color: Colors.grey[850]!.withOpacity(1.0),
                   ),
                 ],
                 image: DecorationImage(

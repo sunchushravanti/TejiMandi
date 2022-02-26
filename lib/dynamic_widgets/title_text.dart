@@ -19,8 +19,13 @@ class TitleText extends StatelessWidget {
           width: MediaQuery.of(context).size.width,
           child: Text(
             title,
-            style:
-                const TextStyle(fontSize: 20, color: ColorUtils.appTitleColor),
+            style: TextStyle(
+                fontFamily: "Roboto Slab",
+                fontWeight: screenName == ConstantsData().homeScreen
+                    ? FontWeight.normal
+                    : FontWeight.bold,
+                fontSize: screenName == ConstantsData().homeScreen ? 20 : 29,
+                color: ColorUtils.appTitleColor),
           )),
     );
   }
@@ -50,16 +55,30 @@ class SubTitleText extends StatelessWidget {
         children: [
           Text(
             title,
-            style: const TextStyle(
-                fontSize: 12, color: ColorUtils.appSubTitleColor),
+            style: TextStyle(
+                fontFamily: 'Roboto Slab',
+                fontWeight: screenName == ConstantsData().homeScreen
+                    ? FontWeight.bold
+                    : FontWeight.normal,
+                fontSize: screenName == ConstantsData().homeScreen ? 12 : 20,
+                color: screenName == ConstantsData().homeScreen
+                    ? ColorUtils.appSubTitleColor
+                    : ColorUtils.appTitleColor),
           ),
           const SizedBox(
             width: 10,
           ),
           Text(
             date,
-            style: const TextStyle(
-                fontSize: 12, color: ColorUtils.appSubTitleColor),
+            style: TextStyle(
+                fontFamily: 'Roboto Slab',
+                fontWeight: screenName == ConstantsData().homeScreen
+                    ? FontWeight.bold
+                    : FontWeight.normal,
+                fontSize: screenName == ConstantsData().homeScreen ? 12 : 20,
+                color: screenName == ConstantsData().homeScreen
+                    ? ColorUtils.appSubTitleColor
+                    : ColorUtils.appTitleColor),
           ),
         ],
       ),
@@ -84,7 +103,10 @@ class DescriptionText extends StatelessWidget {
           Text(
             title,
             style: const TextStyle(
-                fontSize: 12, color: ColorUtils.appSubTitleColor),
+                fontFamily: 'Roboto Slab',
+                fontWeight: FontWeight.normal,
+                fontSize: 14,
+                color: ColorUtils.appSubTitleColor),
           ),
         ],
       ),
