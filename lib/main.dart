@@ -55,7 +55,7 @@ class _HomePage extends State<MyHomePage> {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: ColorUtils.appBarColor,
-          title: Center(child: Text(ConstantsData().headline,style:const TextStyle(fontFamily: "Roboto Slab",fontSize: 29,color:ColorUtils.appBarTitleColor),)),
+          title: Center(child: Text(ConstantsData().headline,style:const TextStyle(fontFamily: "Roboto Slab",fontWeight : FontWeight.bold,fontSize: 29,color:ColorUtils.appBarTitleColor),)),
         ),
         backgroundColor: ColorUtils.aapBackgroundColor,
         resizeToAvoidBottomInset: false,
