@@ -8,6 +8,6 @@ class Repository {
 
   final ApiProvider _apiProvider = ApiProvider();
 
-  Future<NewsModel> getNewsModelRepo(BuildContext context) =>
-      _apiProvider.getNewsModelList(context: context);
+  Future<NewsModel> getNewsModelRepo() =>
+      _apiProvider.getNewsModelList();
 }

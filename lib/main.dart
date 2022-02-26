@@ -39,7 +39,7 @@ class _HomePage extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
-    _newsDataBloc.fetchAllNewsData(context);
+    _newsDataBloc.fetchAllNewsData();
   }
 
   @override
@@ -88,6 +88,7 @@ class _HomePage extends State<MyHomePage> {
                                         )),
                               ),
                           child: CardWidget(
+                            key:  ValueKey(ConstantsData().cardWidget),
                             imageUrl: snapshot.data.articles[index].urlToImage,
                             date: snapshot.data.articles[index].publishedAt,
                             title: snapshot.data.articles[index].title,
